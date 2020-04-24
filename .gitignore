@@ -106,3 +106,9 @@ dist
 .eslintrc
 .cdsrc.json
 .vscode/
+
+
+# added by cds deploy
+default-env.json
+.env1
+gen/

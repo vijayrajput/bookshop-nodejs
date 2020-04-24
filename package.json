@@ -7,16 +7,18 @@
   "private": true,
   "dependencies": {
     "@sap/cds": "^3",
-    "express": "^4"
+    "@sap/hana-client": "^2.4.194",
+    "express": "^4",
+    "hana": "0.0.2"
   },
   "scripts": {
     "start": "npx cds run"
   },
   "cds": {
     "requires": {
-      "API_BUSINESS_PARTNER": {
-        "kind": "odata",
-        "model": "srv/external/API_BUSINESS_PARTNER"
+      "db": {
+        "kind": "hana",
+        "model": ["db","srv"]
       }
     }
   }
