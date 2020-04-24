@@ -5,14 +5,15 @@ service CatalogService @(path:'/browse') {
 
   @readonly entity Books as SELECT from my.Books {*,
     author.name as author
-  } excluding { createdBy, modifiedBy };
+  } excluding { createdBy, modifiedBy, status } where Books.status='Active' ;
 
-  @readonly entity BusinessPartners as projection on external.A_BusinessPartner {
+  @readonly entity Persons as projection on external.A_BusinessPartner {
       key BusinessPartner as ID,
       FirstName,
       MiddleName,
-      LastName
-  };
+      LastName,
+      BusinessPartnerCategory as Type
+  }   ;
 
   @requires_: 'authenticated-user'
   @insertonly entity Orders as projection on my.Orders;

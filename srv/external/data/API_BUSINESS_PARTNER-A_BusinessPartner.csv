@@ -1,2 +1,3 @@
-BusinessPartner;FirstName;MiddleName;LastName
-I044067;Vijay;Singh;Rajput
+BusinessPartner;FirstName;MiddleName;LastName;BusinessPartnerCategory
+I044067;Vijay;Singh;Rajput;0
+SAP;SAP;;NL;1

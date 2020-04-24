@@ -9,6 +9,7 @@ entity Books : managed {
   stock    : Integer;
   price    : Decimal(9,2);
   currency : Currency;
+  status  : String(10);
 }
 
 entity Authors : managed {

@@ -1,6 +1,6 @@
-ID;title;author_ID;stock
-201;Wuthering Heights;101;12
-207;Jane Eyre;107;11
-251;The Raven;150;333
-252;Eleonora;150;555
-271;Catweazle;170;22
+ID;title;author_ID;stock;status
+201;Wuthering Heights;101;12;Active
+207;Jane Eyre;107;11;Inactive
+251;The Raven;150;333;Active
+252;Eleonora;150;555;Inactive
+271;Catweazle;170;22;Active

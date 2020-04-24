@@ -7,20 +7,25 @@ const cds = require('@sap/cds')
 module.exports = async function () {
 
   // Use reflection to get the csn definition of CatalogService Entities
-  const {Books,BusinessPartners,Orders} = this.entities
+  const {Books,Persons,Orders} = this.entities
 
   // get DB Service
   const dbSrv = await cds.connect.to('db')
 
-  //Get External Service
+  //Get ExteA_BUSINESS,,,rnal Service
   const bupaSrv = await cds.connect.to('API_BUSINESS_PARTNER')
 
   // Add some discount for overstocked books
   this.after ('READ', Books, each=>{
     if (each.stock > 111) each.title += ' -- 11% discount!'
   })
-   // Read Business Partner from External Service
-  this.on('READ', BusinessPartners, async (req) => bupaSrv.tx(req).run(req.query))
+   // Read Business Partner from External Service filter with Type = 0
+  this.before('READ', Persons,  async (req)=> bupaSrv.tx(req).run(req.query.where({Type:'0'}))) 
+  //    console.log(req.query)
+   //   let inputQuery = req.query
+    //  return bupaSrv.tx(req).run(req.query);
+  //SELECT.from(Persons).where({BusinessPartnerCategory:'0'})
+  
   // Reduce stock of books upon incoming orders
   this.before ('CREATE',Orders, async (req)=>{
     const tx = dbSrv.transaction(req), order = req.data;
