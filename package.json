@@ -17,7 +17,16 @@
       "API_BUSINESS_PARTNER": {
         "kind": "odata",
         "model": "srv/external/API_BUSINESS_PARTNER"
+      },
+      "db": {
+        "kind": "sqlite",
+        "credentials": {
+          "database": "db/my-bookshop.db"
+        }
       }
     }
+  },
+  "devDependencies": {
+    "sqlite3": "^4.1.1"
   }
 }
