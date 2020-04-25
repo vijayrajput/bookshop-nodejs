@@ -21,6 +21,9 @@ module.exports = async function () {
   })
    // Read Business Partner from External Service filter with Type = 0
   this.before('READ', Persons,  async (req)=> bupaSrv.tx(req).run(req.query.where({Type:'0'}))) 
+
+  // Consume BupaSrv Event
+  bupaSrv.on('BusinessPartner/Changed',async msg=> console.log('<<<< Message Consumed for BP:',msg.data.KEY[0].BUSINESSPARTNER))
   //    console.log(req.query)
    //   let inputQuery = req.query
     //  return bupaSrv.tx(req).run(req.query);

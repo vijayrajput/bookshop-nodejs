@@ -10,3 +10,11 @@ Content-Type: application/json
 
 ### Check books entity that stock was reduced
 GET http://localhost:4004/admin/Books(201)
+
+### Trigger BusinessPartner Event
+PATCH http://localhost:4004/api-business-partner/A_BusinessPartner('I044067')
+Content-Type: application/json
+
+{
+    "MiddleName": "S"
+}
