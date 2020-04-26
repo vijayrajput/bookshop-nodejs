@@ -9,7 +9,8 @@
     "@sap/cds": "^3",
     "@sap/hana-client": "^2.4.194",
     "express": "^4",
-    "hana": "0.0.2"
+    "hana": "0.0.2",
+    "hdb": "^0.17.1"
   },
   "scripts": {
     "start": "npx cds run"
@@ -18,7 +19,10 @@
     "requires": {
       "db": {
         "kind": "hana",
-        "model": ["db","srv"]
+        "model": [
+          "db",
+          "srv"
+        ]
       }
     }
   }
